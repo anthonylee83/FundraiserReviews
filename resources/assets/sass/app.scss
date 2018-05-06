@@ -1,0 +1,51 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+header>.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+
+  .navbar-brand {
+    color:#1895d5;
+    font-size:1.6em;
+    font-weight:800;
+  } 
+}
+#main-jumbotron{
+  background-color:transparent;
+  h1{
+    font-weight:600;
+  }
+  p {
+    color:#fff;
+  }
+  .btn{
+    background-color:#fff;
+  }
+
+  .search {
+    width:60%;
+    margin: 0px auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  }
+}
+
+#main-jumbotron::after {
+  content: "";
+  background: url('/test_fundraiser.jpg');
+  background-size:cover;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  right: 0;
+  height:500px;
+  position: absolute;
+  z-index: -1;   
+}
