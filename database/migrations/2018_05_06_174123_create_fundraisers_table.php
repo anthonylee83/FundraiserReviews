@@ -35,6 +35,6 @@ class CreateFundraisersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fundraisers');
+        //Don't drop
     }
 }

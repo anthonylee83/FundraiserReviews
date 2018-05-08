@@ -17,16 +17,33 @@ class FundraiserController extends Controller
     public function show($slug)
     {
         $fundraiser = Fundraiser::where('slug', $slug)->first();
-        return view('fundraiser.show', compact('fundraiser'));
+        $reviews = $fundraiser->reviews()->paginate(15);
+
+        return view('fundraiser.show', compact('fundraiser', 'reviews'));
     }
 
-    public function create(){
+    public function create()
+    {
         return view('fundraiser.create');
     }
 
     public function store(FundraiserRequest $request)
     {
-        $fundraiser = Fundraiser::create($request->all(), ['slug'=>str_slug($request->name . " " . $request->location)]);
+        $fundraiser = "";
+        try{
+            $fundraiser = Fundraiser::firstOrCreate($request->validated(), ['slug'=>str_slug($request->name . " " . $request->location)]);
+        }catch(\Exception $e){
+            if($e->getCode() == 23000) {
+                $fundraiser = Fundraiser::where('name', $request->name)->where('location', $request->location)->first();
+            }
+        }
         return redirect()->action('FundraiserController@show', $fundraiser->slug);
+    }
+
+    public function search($searchTerms)
+    {
+        //not very efficient but gets the job done for short notice.
+        $fundraisers = Fundraiser::where('name', 'LIKE', '%' . $searchTerms . '%')->orWhere('location', 'LIKE', '%' . $searchTerms . '%')->take(5)->get();
+        return $fundraisers;
     }
 }

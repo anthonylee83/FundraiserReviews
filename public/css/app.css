@@ -10412,15 +10412,20 @@ a.text-dark:focus {
 }
 
 header > .navbar {
-  background-color: #fff;
+  background-color: #1895d5;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 header > .navbar .navbar-brand {
-  color: #1895d5;
+  color: #fff;
   font-size: 1.6em;
   font-weight: 800;
+}
+
+#app {
+  margin-top: 25px;
+  padding: 25px;
 }
 
 #main-jumbotron {
@@ -10457,5 +10462,43 @@ header > .navbar .navbar-brand {
   height: 500px;
   position: absolute;
   z-index: -1;
+}
+
+.review .fa-star-selected {
+  color: #db0d14;
+}
+
+.rating-container {
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #c7c7c7;
+}
+
+.rating-container .rating {
+  display: inline-block;
+  padding: 10px 10px 0px 10px;
+}
+
+.rating-container .user {
+  font-size: 1.3em;
+  font-weight: 600;
+  display: inline-block;
+  padding: 10px 10px 0px 10px;
+}
+
+.rating-container .date {
+  font-size: 1.15em;
+  font-weight: 400;
+  padding: 0px 25px;
+  margin-bottom: .9em;
+}
+
+.rating-container .review {
+  padding: 10px;
+}
+
+.new-button {
+  display: inline-block;
+  margin-bottom: 10px;
 }
 

@@ -20,7 +20,7 @@ class CreateReviewsTable extends Migration
             $table->enum('rating', [1, 2, 3, 4, 5] );
             $table->text('review');
             //We'll store the review but wait for validation before displaying
-            $table->boolean('validated');
+            $table->boolean('validated')->default(false);
 
             //Holds the has on the verification email
             $table->string('hash')->unique();
@@ -41,6 +41,6 @@ class CreateReviewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        //Don't drop
     }
 }

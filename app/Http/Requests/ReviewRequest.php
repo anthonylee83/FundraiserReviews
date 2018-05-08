@@ -4,7 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FundraiserRequest extends FormRequest
+
+class ReviewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +25,11 @@ class FundraiserRequest extends FormRequest
     public function rules()
     {
         return [
+            'fundraiser_id'=>'required|numeric',
             'name'=>'required|string',
-            'location' => 'required|string'
-
+            'email'=>'required|email',
+            'rating'=>'required|numeric|min:1|max:5',
+            'review'=>'required|string'
         ];
     }
 }

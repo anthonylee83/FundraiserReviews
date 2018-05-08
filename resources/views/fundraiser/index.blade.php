@@ -6,12 +6,7 @@
       <h1 class="jumbotron-heading">Search Fundraisers</h1>
       <p class="lead">Search for a specific fundraiser or browse below to find a fundraiser!</p>
       <p>
-          <div class="input-group search">
-            <input class="form-control" type="search" area-label="Search Fundraisers." />
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
-            </div>
-         </div>
+          <search></search>
       </p>
     </div>
     </div>
