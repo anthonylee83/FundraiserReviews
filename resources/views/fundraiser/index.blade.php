@@ -4,7 +4,7 @@
 <section id="main-jumbotron" class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading">Search Fundraisers</h1>
-      <p class="lead">Search for a specific fundraiser or browse below to find a fundraiser!</p>
+      <p class="lead">Search for a specific fundraiser or browse below!</p>
       <p>
           <search></search>
       </p>
