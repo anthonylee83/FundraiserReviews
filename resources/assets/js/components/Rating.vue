@@ -3,7 +3,7 @@
         <input type="hidden" name="rating" :value="rating" />
        <div class="rating">
             <div v-for="i in max" :class="{'selected': rating >=i,'hover':hoverable >=i}"
-                :key="i" @click="rating = i" @mouseover="hoverable = i" @mouseleave="hoverable = 0">
+                :key="i" @click="readOnly ? null : rating = i" @mouseover="readOnly ? null : hoverable = i" @mouseleave="hoverable = 0">
                     <i :class="['fas fa-star', {'selectable':!readOnly}]"></i>
             </div>
           
@@ -25,7 +25,7 @@ export default {
     mounted:function(){
         if(this.score !== undefined){
             this.rating = this.score;
-            this.readONly = true;
+            this.readOnly = true;
         }
     }
 }
