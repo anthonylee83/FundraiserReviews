@@ -88,3 +88,11 @@ header>.navbar {
   display:inline-block;
   margin-bottom:10px;  
 }
+
+.card{
+  margin:10px auto;
+  width:250px;
+  .card-footer{
+    text-align:center;
+  }
+}

@@ -39,4 +39,6 @@ class FundraiserTests extends TestCase
         $this->post('/fundraiser', ['name' => $fundraiser->name, 'location' => $fundraiser->location])
             ->assertStatus(302);
     }
+    
+    //There should be a lot more tests for this but... time just didn't permit
 }

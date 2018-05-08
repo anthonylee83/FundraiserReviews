@@ -25,9 +25,8 @@
               <p class="card-text">{{$fundraiser->location}}</p>
             </div>
             <div class="card-footer">
-              <a href="{{action('FundraiserController@show', $fundraiser->slug)}}" class="btn btn-primary">Find Out More!</a>
+              <a href="{{action('FundraiserController@show', $fundraiser->slug)}}" class="btn btn-primary">View</a>
             </div>
-          </div>
         </div>
     @empty
         <div class="card">
@@ -38,7 +37,10 @@
             <div class="card-footer">
               <a href="{{action('FundraiserController@create')}}" class="btn btn-primary">Create Event?</a>
             </div>
-          </div>
         </div>
     @endforelse
+
+    <div class="add_fundraiser">
+      Didn't find the fundraiser you were looking for? <a href="{{action('FundraiserController@create')}}">Click</a> to add one.
+    </div>
 @endsection
