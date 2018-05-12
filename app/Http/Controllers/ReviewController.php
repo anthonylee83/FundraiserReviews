@@ -9,19 +9,36 @@ use App\Review;
 
 class ReviewController extends Controller
 {
+    /** create a review
+     * 
+     * $param String slug slug of fundraiser to add review to.
+     */
     public function create($slug)
     {
         $fundraiser = Fundraiser::where('slug', $slug)->first();
         return view('review.create', compact('fundraiser'));
     }
 
+
+    /** 
+     * Stores a new answer to a question
+     * 
+     * @param slug string  slug of fundraiser to add review to
+     * @param ReviewRequest $request review request 
+     * @param return Fundraiser fundraiser show;
+     */
     public function store($slug, ReviewRequest $request)
     {
         $status = '';
-        try {
+        try{
             //insert review here. In production would implement an email to go out to user to validate email
             $review = Review::firstOrCreate($request->validated(), ['hash'=>str_random()]);
-            $review = 'Review Added Successfully!';
+            $status = 'Review Added Successfully!';
+
+            //Calculate new averagte for the event and update
+            $fundraiser = Fundraiser::findOrFail($request->fundraiser_id);
+            $fundraiser->rating = $fundraiser->reviews()->avg('rating');
+            $fundraiser->save();
 
         } catch(\Exception $e) {
             //Check error to see if constraint failure occurred

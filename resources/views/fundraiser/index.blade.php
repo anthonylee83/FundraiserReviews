@@ -23,6 +23,7 @@
             <div class="card-body">
               <h4 class="card-title">{{$fundraiser->name}}</h4>
               <p class="card-text">{{$fundraiser->location}}</p>
+              <p classs="card-text">Rating: {{$fundraiser->rating}}</p>
             </div>
             <div class="card-footer">
               <a href="{{action('FundraiserController@show', $fundraiser->slug)}}" class="btn btn-primary">View</a>
